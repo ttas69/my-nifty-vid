@@ -1,0 +1,13 @@
+name = "my-nifty-vid"
+main = "src/index.ts"
+compatibility_date = "2025-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Comma-separated production/dev origins.
+ALLOWED_ORIGINS = "http://localhost:4321"
+HF_SPACE_BASE = "https://cbensimon-wan2-2-fp8da-aoti-preview2.hf.space"
+HF_FN_NAME = "generate_video"
+
+[observability]
+enabled = true
