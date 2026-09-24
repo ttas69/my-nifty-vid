@@ -390,7 +390,6 @@ function extractVideoUrl(fileData: unknown): string | null {
 
   return null;
 }
-}
 
 /**
  * Read an error message from a Response. The Worker sends `{error: string}`
