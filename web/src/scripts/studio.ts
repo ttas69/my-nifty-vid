@@ -360,15 +360,36 @@ const HF_SPACE_BASE = "https://cbensimon-wan2-2-fp8da-aoti-preview2.hf.space";
  */
 function extractVideoUrl(fileData: unknown): string | null {
   if (!fileData) return null;
+
   if (typeof fileData === "string") {
     return `${HF_SPACE_BASE}/gradio_api/file=${fileData}`;
   }
+
   if (typeof fileData === "object") {
-    const f = fileData as { url?: string; path?: string };
+    const f = fileData as {
+      url?: string;
+      path?: string;
+      video?: {
+        url?: string;
+        path?: string;
+      };
+    };
+
+    // Gradio VideoData: { video: FileData, subtitles: ... }
+    if (f.video) {
+      if (f.video.url) return f.video.url;
+      if (f.video.path) {
+        return `${HF_SPACE_BASE}/gradio_api/file=${f.video.path}`;
+      }
+    }
+
+    // Older/simple FileData format
     if (f.url) return f.url;
     if (f.path) return `${HF_SPACE_BASE}/gradio_api/file=${f.path}`;
   }
+
   return null;
+}
 }
 
 /**
