@@ -5,7 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 [vars]
 # Comma-separated production/dev origins.
-ALLOWED_ORIGINS = "http://localhost:4321"
+ALLOWED_ORIGINS = "https://ttas69.github.io"
 HF_SPACE_BASE = "https://cbensimon-wan2-2-fp8da-aoti-preview2.hf.space"
 HF_FN_NAME = "generate_video"
 
