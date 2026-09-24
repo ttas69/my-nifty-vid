@@ -46,7 +46,7 @@ jobs:
         env:
           PUBLIC_SITE_URL: https://ttas69.github.io/my-nifty-vid/
           PUBLIC_BASE_PATH: /my-nifty-vid/
-          PUBLIC_WORKER_URL: ""
+          PUBLIC_WORKER_URL: ${{ vars.PUBLIC_WORKER_URL }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
